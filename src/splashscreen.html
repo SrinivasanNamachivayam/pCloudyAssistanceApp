@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to pCloudy</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="author" content="pCloudy">
+
+        <link rel="stylesheet" href="./resources/css/material-icon.css">
+        <link rel="stylesheet" href="./resources/css/bootstrap.css">
+        <link rel="stylesheet" href="./resources/css/bootstrap.min.css">
+
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+        <style>
+            *{
+                font-family: 'Montserrat', sans-serif;
+            }
+            body{
+                background: linear-gradient(40deg,#45cafc,#303f9f);
+                width: 100%;
+                height: 100vh;
+            }
+            .pm0{
+                padding: 0px;
+                margin: 0px;
+            }
+            .m0{
+                margin: 0px;
+            }
+            .p0{
+                padding: 0px;
+            }
+            #main-container{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+            }
+            #app-version-container{
+                padding: 30px 30px 15px 30px;
+            }
+            #app-version-text{
+                color: white;
+                font-weight: 200;
+            }
+            #splashscreen-image-container > img{
+                width: 40%;
+                display: block;
+                margin: auto;
+            }
+            #pcloudy-quote-text{
+                color: white;
+                font-size: 2rem;
+                font-weight: bolder;
+                margin-bottom: .5rem;
+            }
+            #pcloudy-quote-subtext{
+                color: #ffffff;
+                font-size: 1.25rem;
+                font-weight: 200;
+            }
+            #footer-container{
+                margin: 20px;
+            }
+            #copyrights-info-text{
+                color: white;
+                font-size: .75rem;
+            }
+            #pcloudy-site-url{
+                color: white;
+                font-size: .75rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid pm0" id="main-container">
+            <div class="text-right" id="app-version-container">
+                <span id="app-version-text">1.0.0</span>
+            </div>
+
+            <div class="text-center" id="splashscreen-image-container">
+                <img src="./resources/images/splashscreen.png" alt="pcloudy logo">
+            </div>
+
+            <blockquote class="text-center" id="pcloudy-quote-container">
+                <p id="pcloudy-quote-text">pCloudy Platform Assistant</p>
+                <footer id="pcloudy-quote-subtext">Connect remote devices to your Desktop</footer>
+            </blockquote>
+
+            <div class="row m0" id="footer-container">
+                <div class="col-md-6" id="copyrights-info-container">
+                    <span id="copyrights-info-text">Copyright All Rights Reserved © 2020</span>
+                </div>
+                <div class="col-md-6 text-right" id="pcloudy-site-info-container">
+                    <a id="pcloudy-site-url" href="http://pcloudy.com" target="_blank">www.pcloudy.com</a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            if (typeof module === 'object') {
+                window.module = module; module = undefined;
+            }
+        </script>
+        <script src="./resources/javascript/jquery.min.js"></script>
+        <script src="./resources/javascript/bootstrap.bundle.js"></script>
+        <script src="./resources/javascript/bootstrap.bundle.min.js"></script>
+        <script>
+            if (window.module) module = window.module;
+        </script>
+    </body>
+</html>

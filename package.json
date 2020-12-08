@@ -1,0 +1,43 @@
+{
+  "name": "pcloudyapp",
+  "productName": "pCloudy App",
+  "version": "1.0.2",
+  "description": "pCloudy app helps to run your test scripts on the pcloudy devices",
+  "main": "./src/app.js",
+  "homepage": "www.pcloudy.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SrinivasanNamachivayam/pCloudyAssistanceApp.git"
+  },
+  "scripts": {
+    "build": "electron-builder build --publish never",
+    "deploy": "electron-builder build --publish always",
+    "test": "electron ./src/app.js"
+  },
+  "keywords": [
+    "Wildnet",
+    "Android device tunnel",
+    "iOS device tunnel",
+    "Device tunnel",
+    "pCloudy App",
+    "pCloudy utility"
+  ],
+  "author": {
+    "name": "Srinivasan",
+    "email": "srinivasan.n@sstsinc.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^11.0.4",
+    "electron-builder": "^22.9.1"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-updater": "^4.3.5",
+    "find-free-port": "^2.0.0",
+    "http-proxy": "^1.18.1",
+    "promise": "^8.1.0",
+    "proxy-agent": "^4.0.0",
+    "reverse-wstunnel": "^1.2.2"
+  }
+}

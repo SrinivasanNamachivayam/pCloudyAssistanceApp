@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>pCloudy Desktop Assistant</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="author" content="pCloudy">
+
+        <link rel="stylesheet" href="./resources/css/material-icon.css">
+        <link rel="stylesheet" href="./resources/css/bootstrap.css">
+        <link rel="stylesheet" href="./resources/css/bootstrap.min.css">
+
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+        <style>
+            *{
+                font-family: 'Montserrat', sans-serif;
+            }
+            body{
+                width: 100%;
+            }
+            .pm0{
+                padding: 0px;
+                margin: 0px;
+            }
+            .m0{
+                margin: 0px;
+            }
+            .p0{
+                padding: 0px;
+            }
+            #auth-section{
+                padding: 0px 50px;
+            }
+            #auth-header-container{
+                margin: 30px 0px;
+            }
+            #auth-header-caption-container{
+                display: flex;
+                align-items: center;
+            }
+            #pcloudy-logo-with-slogan{
+                width: 125px;
+            }
+            .auth-input-field-container{
+                margin-bottom: 40px;
+            }
+            .auth-input-field{
+                border-right: 0px;
+                font-size: .75rem;
+                height: 2.5rem;
+            }
+            .input-field-info-icon{
+                background-color: transparent;
+                color: darkgray;
+                /* font-size: .75rem; */
+            }
+            .auth-input-field::placeholder{
+                font-size: .75rem;
+            }
+            #auth-button-container{
+                margin-bottom: 20px;
+            }
+            #pcy-authenticate{
+                display: flex;
+            }
+            #auth-error-msg-text{
+                color: red;
+            }
+            #advance-btn{
+                padding: 0px;
+                font-size: .75rem;
+                margin-bottom: 15px;
+            }
+            #advance-btn::after{
+                display: inline-block;
+                content: "";
+                width: 0;
+                height: 0;
+                border: 0;
+                border-bottom: 5px solid #3e3e3e;
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                vertical-align: middle;
+                margin-left: 10px;
+                margin-bottom: 3px;
+            }
+
+            #footer-section{
+                position: fixed;
+                width: 100%;
+                bottom: 0;
+                padding: 10px 50px;
+                background-color: #007bff;
+                font-size: .75rem;
+            }
+            #version-text,
+            #copyrights-text,
+            #pcloudy-site-url{
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid pm0">
+            <div id="auth-section">
+                <div class="row m0" id="auth-header-container">
+                    <div class="col-md-6" id="auth-header-caption-container">
+                        <h5>Authenticate</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-right">
+                            <img id="pcloudy-logo-with-slogan" src="./resources/images/right expanded.svg" alt="pcloudy logo">
+                        </div>
+                    </div>
+                </div>
+                <div id="auth-form-container">
+                    <div class="row m0">
+                        <div class="col-md-6 auth-input-field-container">
+                            <div class="input-group">
+                                <input type="text" class="form-control auth-input-field" id="email-address-field" placeholder="Email Address" title="Enter your email Address" value="srinivasan.n@sstsinc.com">
+                                <div class="input-group-append">
+                                    <span class="input-group-text material-icons input-field-info-icon" title="Enter your email Address">info</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 auth-input-field-container">
+                            <div class="input-group">
+                                <input type="text" class="form-control auth-input-field" id="access-key-field" placeholder="Access Key" title="Enter your access key" value="wzgkm3ncmfrfhvtzn96ckhjy">
+                                <div class="input-group-append">
+                                    <span class="input-group-text material-icons input-field-info-icon" title="Enter your access key">info</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 auth-input-field-container">
+                            <div class="input-group">
+                                <input type="text" class="form-control auth-input-field" id="cloud-url-field" placeholder="Cloud URL" title="Enter your cloud url" value="https://test.pcloudy.com">
+                                <div class="input-group-append">
+                                    <span class="input-group-text material-icons input-field-info-icon" title="Enter your cloud url">info</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="col-md-12">
+                        <button type="button" class="btn" id="advance-btn">Advance</button>
+                    </div>
+
+                    <div class="row m0" id="advance-btn-container">
+                        <div class="col-md-12 auth-input-field-container">
+                            <div class="input-group">
+                                <input type="text" class="form-control auth-input-field" id="debug-proxy" placeholder="Debug proxy (Optional)" title="">
+                                <div class="input-group-append">
+                                    <span class="input-group-text material-icons input-field-info-icon" title="">info</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 auth-input-field-container">
+                            <div class="input-group">
+                                <input type="text" class="form-control auth-input-field" id="direct-proxy" placeholder="Direct proxy (Optional)" title="">
+                                <div class="input-group-append">
+                                    <span class="input-group-text material-icons input-field-info-icon" title="">info</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 auth-input-field-container">
+                            <div class="input-group">
+                                <input type="text" class="form-control auth-input-field" id="pac-proxy" placeholder="Pac proxy (Optional)" title="">
+                                <div class="input-group-append">
+                                    <span class="input-group-text material-icons input-field-info-icon" title="">info</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12" id="auth-button-container">
+                        <button class="btn bg-primary text-white" id="pcy-authenticate" type="button">
+                            <span class="material-icons">trending_flat</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="row m0" id="auth-error-msg-container">
+                    <div class="col-md-12">
+                        <p class="d-none" id="auth-error-msg-text"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row m0" id="footer-section">
+                <div class="col-md-6">
+                    <span id="version-text">1.0.0</span>
+                    <span id="copyrights-text"> | Copyright All Rights Reserved © 2020</span>
+                </div>
+                <div class="col-md-6 text-right">
+                    <a id="pcloudy-site-url" href="http://pcloudy.com" target="_blank">www.pcloudy.com</a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            if (typeof module === 'object') {
+                window.module = module; module = undefined;
+            }
+        </script>
+        <script src="./resources/javascript/jquery.min.js"></script>
+        <script src="./resources/javascript/bootstrap.bundle.js"></script>
+        <script src="./resources/javascript/bootstrap.bundle.min.js"></script>
+        <script>
+            if (window.module) module = window.module;
+            var { ipcRenderer } = require("electron");
+
+            $("#pcy-authenticate").on("click", ()=>{
+                let emailAddress = $("#email-address-field").val();
+                let apiAccessKey = $("#access-key-field").val();
+                let cloudUrl = $("#cloud-url-field").val();
+                let debugProxy = $("#debug-proxy").val();
+                let directProxy = $("#direct-proxy").val();
+                let pacProxy = $("#pac-proxy").val();
+
+                validateAuthInputField(emailAddress, apiAccessKey, cloudUrl).then(()=>{
+                    if($("#auth-error-msg-text").hasClass("d-block")){
+                        $("#auth-error-msg-text").text("");
+                        $("#auth-error-msg-text").removeClass("d-block");
+                        $("#auth-error-msg-text").addClass("d-none");
+                    }
+
+                    var authData = {
+                        emailAddress: emailAddress,
+                        apiAccessKey: apiAccessKey,
+                        cloudUrl: cloudUrl,
+                        proxiesInfo: {}
+                    }
+
+                    if(debugProxy != "" && directProxy == "" && pacProxy == ""){
+                        authData.proxiesInfo.debugProxy = debugProxy;
+                    }else if(debugProxy == "" && directProxy != "" && pacProxy == ""){
+                        authData.proxiesInfo.directProxy = directProxy;
+                    }else if(debugProxy == "" && directProxy == "" && pacProxy != ""){
+                        authData.proxiesInfo.pacProxy = pacProxy;
+                    }else if(debugProxy == "" && directProxy == "" && pacProxy == ""){
+                        //
+                    }else{
+                        if($("#auth-error-msg-text").hasClass("d-none")){
+                            $("#auth-error-msg-text").removeClass("d-none");
+                            $("#auth-error-msg-text").addClass("d-block");
+                        }
+                        $("#auth-error-msg-text").text("Only one proxy can be enable at a time. Kindly entry the proxy information in one field.");
+                        return;
+                    }
+
+                    ipcRenderer.send("authenticate-user", authData);
+                    ipcRenderer.on("authenticate-user", (event, receivedData)=>{
+                        console.log("REPONSE :" + JSON.stringify(receivedData));
+                        if(receivedData.status == true || receivedData.status == "true"){
+                            $("#email-address-field").val("");
+                            $("#access-key-field").val("");
+                            $("#cloud-url-field").val("");
+                            $("#auth-error-msg-text").text("");
+                            if(receivedData.data.hasOwnProperty("success") && receivedData.data.success.hasOwnProperty("sessionid")  && receivedData.data.success.hasOwnProperty("port")){
+                                window.location.href = "./dashboard.html"
+                            }else{
+                                if($("#auth-error-msg-text").hasClass("d-none")){
+                                    $("#auth-error-msg-text").removeClass("d-none");
+                                    $("#auth-error-msg-text").addClass("d-block");
+                                }
+                                $("#auth-error-msg-text").text(receivedData.data.error);    
+                            }
+                        }else{
+                            $("#email-address-field").val("");
+                            $("#access-key-field").val("");
+                            $("#cloud-url-field").val("");
+                            if($("#auth-error-msg-text").hasClass("d-none")){
+                                $("#auth-error-msg-text").removeClass("d-none");
+                                $("#auth-error-msg-text").addClass("d-block");
+                            }
+                            $("#auth-error-msg-text").text("Something went wrong..."); 
+                        }
+                    });
+                },(flaw)=>{
+                    if($("#auth-error-msg-text").hasClass("d-none")){
+                        $("#auth-error-msg-text").removeClass("d-none");
+                        $("#auth-error-msg-text").addClass("d-block");
+                    }
+                    $("#auth-error-msg-text").text(flaw.msg);
+                });
+            });
+
+
+            $("#advance-btn").on("click", (e)=>{
+                console.log(e.target.classList);
+                let currentElementId = e.target.getAttribute('id');
+                $("#"+ currentElementId + "-container").toggleClass("d-none");
+            });
+
+            function validateAuthInputField(emailAddress, apiAccessKey, cloudUrl){
+                return new Promise((resolve, reject)=>{
+                    const emailPatten = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/g);
+                    const urlPatten = new RegExp(/^(https?):\/\/[a-z0-9].*$/g);
+                    if(emailAddress == "" || apiAccessKey == "" && cloudUrl == ""){
+                        reject({
+                            msg: "All the fields are mandatory"
+                        });
+                    }else if(emailAddress == ""){
+                        reject({
+                            msg: "Fill the email address field"
+                        });
+                    }else if(apiAccessKey == ""){
+                        reject({
+                            msg: "Fill the access key field"
+                        });
+                    }else if(cloudUrl == ""){
+                        reject({
+                            msg: "Fill the cloud url field"
+                        });
+                    }else{
+                        if(emailPatten.test(emailAddress)){
+                            if(apiAccessKey.length == 24){
+                                if(urlPatten.test(cloudUrl)){
+                                    resolve();
+                                }else{
+                                    reject({
+                                        msg: "Enter a valid cloud url"
+                                    });
+                                }
+                            }else{
+                                reject({
+                                    msg: "Enter a valid access key"
+                                });
+                            }
+                        }else{
+                            reject({
+                                msg: "Enter a valid email address"
+                            });
+                        }
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>
